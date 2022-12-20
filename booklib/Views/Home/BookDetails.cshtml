@@ -1,0 +1,40 @@
+﻿@model BookModel
+@{
+    ViewData["Title"] = "Kitap Detayları";
+}
+
+
+<div class="row">
+    <div class="col-14">
+        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <img src="~/uploads/@Model.BookImageFileName" width="128px" height="200px" class="img-thumbnail" />
+
+        <p>Kitabın Adı:</p>
+        <h3>@Model.BookName</h3>
+
+        <p>Yazar: </p>
+        <h3>@Model.Author</h3>
+
+        <p>Kitap Hakkında</p>
+        <p>@Model.BookSubject</p>
+       
+        <p>Kitabın Türü</p>
+        <p>@Model.BookType</p>
+
+        <p>Yayım Tarihi</p>
+        <p>@Model.PublishingDate</p>
+        @if(Model.Stock > 1){
+            <p>Kitap Mevcuttur.</p>
+        }
+        else{
+            <p>Kitap Yoktur.</p>
+        }
+        <a class="btn btn-secondary" asp-action="DetailsList">Geri Dön</a>
+        <a class="btn btn-success" asp-action="#">Ödünç Al</a>
+        
+    </div>
+</div>
